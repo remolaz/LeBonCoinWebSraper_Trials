@@ -1,7 +1,13 @@
 from selenium.webdriver import Chrome
+from selenium.webdriver.chrome.options import Options
 import pandas as pd
 
-driver = Chrome(r"C:\Users\Remo\PycharmProjects\Prj1\chromedriver_win32\chromedriver.exe")
+myOptions = Options()
+myOptions.add_argument("--disable-blink-features=AutomationControlled") 
+# If the website is loaded with automation tools like Selenium, the value of navigator.webdriver is set to true. 
+# This should set the value to false.
+
+driver = Chrome(r"C:\Users\Remo\PycharmProjects\Prj1\chromedriver_win32\chromedriver.exe", options=myOptions)
 
 url = "https://www.leboncoin.fr"
 
